@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html data-ng-app="ImNaNaApp">
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
     <link rel="stylesheet" type="text/css" href="stylesheets/imnanastylesheet.css" media="screen">
       <script src="javascripts/jquery-1.11.2.min.js"></script>
-      <script src="javascripts/jquery-1.11.2.min.map"></script>
       <script type="text/javascript">
           $(document).ready( function() {
               $(window).scroll(function() {
@@ -16,6 +15,17 @@
                       "background-position":"0px -"+scrollTop/divam+"px"
                   });
               });
+
+//              var mcis = $('.mci');
+//              for(var i = 0; i < mcis.length; ++i){
+//                  val img = mcis[i];
+//                  mcis[i].onload = function(i) {
+//                      var img = mcis[i];
+//                      console.log(img.height);
+//                      console.log(img.width);
+//
+//                  };
+//              }
           });
       </script>
     <title>ImNaNa&#39;s Gallery by wuciawe</title>
@@ -23,9 +33,11 @@
       <link rel="stylesheet" href="stylesheets/bootstrap-theme.min.css">
       <script src="javascripts/bootstrap.min.js"></script>
       <link rel="shortcut icon" href="http://wuciawe.github.io/favicon.ico">
+      <script src="javascripts/angular.min.js"></script>
+      <script src="javascripts/ImNaNa.js"></script>
   </head>
 
-  <body>
+  <body data-ng-controller="LoadImageController" data-scrollable-directive>
   <header class="navbar navbar-fixed-top" role="navigation" style="margin-bottom: 0px;">
       <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
@@ -52,6 +64,39 @@
   <div class="container">
       <div class="row mainpad">
           <div class="col-md-12" >
+              <div class="mcContainer">
+                  <div class="mc1 mcs">
+                      <img class="mci" data-ng-src="{{ imgModel.urls[0] }}" onload="resize(this)"/>
+                  </div>
+                  <div class="mc2 mcs">
+                      <img class="mci" data-ng-src="{{ imgModel.urls[1] }}" onload="resize(this)"/>
+                  </div>
+                  <div class="mc3 mcm">
+                      <img class="mci" data-ng-src="{{ imgModel.urls[2] }}" onload="resize(this)"/>
+                  </div>
+                  <div class="mc4 mcs">
+                      <img class="mci" data-ng-src="{{ imgModel.urls[3] }}" onload="resize(this)"/>
+                  </div>
+                  <div class="mc5 mcs">
+                      <img class="mci" data-ng-src="{{ imgModel.urls[4] }}" onload="resize(this)"/>
+                  </div>
+                  <div class="mc6 mcs">
+                      <img class="mci" data-ng-src="{{ imgModel.urls[5] }}" onload="resize(this)"/>
+                  </div>
+                  <div class="mc7 mcs">
+                      <img class="mci" data-ng-src="{{ imgModel.urls[6] }}" onload="resize(this)"/>
+                  </div>
+                  <script type="text/javascript">
+                      function resize(img){
+                          if(img.height > img.width) {
+                              img.style.height = "100%";
+                          } else {
+                              img.style.width = "100%";
+                          }
+                      }
+                  </script>
+              </div>
+
               <div>
                   <h1>skeldkseklsekdlskekdlskdgk</h1>
                   <h1>skeldkseklsekdlskekdlskdgk</h1>

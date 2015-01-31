@@ -1,5 +1,5 @@
 body {
-    background: url("../images/background.jpg") fixed transparent;
+    background: url("../images/background.jpg") fixed;
 }
 
 header{
@@ -13,4 +13,82 @@ header a{
 .mainpad{
     background: rgba(255, 255, 255, 0.9);
     padding-top: 50px;
+}
+
+.mcContainer{
+    position: relative;
+    width: 100%;
+    min-width: 720px;
+    height: 40vh;
+    min-height: 420px;
+    margin-top: 10px;
+    border-radius: 5px 5px 5px 5px;
+    border: 1px solid #080808;
+}
+
+.mcs{
+    position: absolute;
+    width: 20%;
+    height: 50%;
+}
+
+.mcm{
+    position: absolute;
+    width: 40%;
+    height: 100%;
+}
+
+.mci{
+    position: absolute;
+    top: 0; bottom:0; left: 0; right:0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.mc1{
+    left: 0%;
+    top: 0%;
+    border-bottom: 1px solid;
+    border-color: #080808;
+}
+
+.mc2{
+    left: 0%;
+    top: 50%;
+}
+
+.mc3{
+    left: 20%;
+    top: 0%;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-color: #080808;
+}
+
+.mc4{
+    left: 60%;
+    top: 0%;
+    border-bottom: 1px solid;
+    border-color: #080808;
+}
+
+.mc5{
+    left: 60%;
+    top: 50%;
+}
+
+.mc6{
+    left: 80%;
+    top: 0%;
+    border-left: 1px solid;
+    border-bottom: 1px solid;
+    border-color: #080808;
+}
+
+.mc7{
+    left: 80%;
+    top: 50%;
+    border-left: 1px solid;
+    border-color: #080808;
 }
