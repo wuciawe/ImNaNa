@@ -4,11 +4,10 @@
 
 var ImNaNaApp = angular.module('ImNaNaApp', []);
 ImNaNaApp.factory('preLoadImageService', function($http) {
-    var baseUrl = 'images/ImNaNa/';
     var runDownload = function(imageLoc) {
         return $http({
             method: 'GET',
-            url: baseUrl + imageLoc
+            url: imageLoc
         });
     };
     return {
@@ -18,7 +17,24 @@ ImNaNaApp.factory('preLoadImageService', function($http) {
     };
 });
 ImNaNaApp.factory('generateUrlService', function($http){
-
+    var baseUrl = 'images/ImNaNa/';
+    var urls = ['images/nanaavator.png'];
+    $http.get('javascripts/c.json').success(function(data) {
+        for(var i = 0; i < data.length; ++i){
+            var ob = data[i];
+            var cate = ob["cate"];
+            var addrs = ob["addrs"];
+            for(var j = 0; j < addrs.length; ++j){
+                urls.push('images/ImNaNa/' + cate + "/" + addrs[j]);
+            }
+        }
+    });
+    return {
+        randomUrl: function(){
+            var idx = Math.floor(Math.random() * urls.length);
+            return urls[idx];
+        }
+    }
 });
 ImNaNaApp.directive('scrollableDirective', ['$document', function ($document) {
     return {
@@ -37,39 +53,30 @@ ImNaNaApp.directive('scrollableDirective', ['$document', function ($document) {
         }
     };
 }]);
-ImNaNaApp.controller('LoadImageController', ['$scope', '$timeout', '$document', 'preLoadImageService', function($scope, $timeout, $document, preLoadImageService){
+ImNaNaApp.controller('LoadImageController', ['$scope', '$timeout', '$document', 'preLoadImageService', 'generateUrlService', function($scope, $timeout, $document, preLoadImageService, generateUrlService){
     $scope.imgModel = {};
     $scope.imgModel.scrollInRange = $document.scrollTop() < 350;
     $scope.imgModel.urls = [];
-    $scope.imgModel.urls[0] = 'images/ImNaNa/4.jpg';
-    $scope.imgModel.urls[1] = 'images/ImNaNa/4.jpg';
-    $scope.imgModel.urls[2] = 'images/ImNaNa/4.jpg';
-    $scope.imgModel.urls[3] = 'images/ImNaNa/4.jpg';
-    $scope.imgModel.urls[4] = 'images/ImNaNa/4.jpg';
-    $scope.imgModel.urls[5] = 'images/ImNaNa/4.jpg';
-    $scope.imgModel.urls[6] = 'images/ImNaNa/4.jpg';
+    for(var i = 0; i < 7; ++i){
+        $scope.imgModel.urls[i] = generateUrlService.randomUrl();
+    }
 
     $scope.loadingImage = function(idx){
         $timeout(function() {
-            preLoadImageService.image(Math.floor(Math.random() * 200) + 1).success(function (data, status, header) {
-                $scope.urls[idx] = url;
+            var url = generateUrlService.randomUrl();
+            preLoadImageService.image(url).success(function (data, status, header) {
+                $scope.imgModel.urls[idx] = url;
                 if($scope.imgModel.scrollInRange) $scope.loadingImage(idx);
             }).error(function (reason) {
                 if($scope.imgModel.scrollInRange) $scope.loadingImage(idx);
             });
-        }, Math.floor(Math.random() * 3000) + 3000);
+        }, Math.floor(Math.random() * 6000) + 3000);
     };
 
     if($scope.imgModel.scrollInRange){
         for(var i = 0; i < $scope.imgModel.urls.length; ++i){
-            $scope.loadingImage(i)
+            $scope.loadingImage(i);
         }
     }
-    //for(var i = 0; i < $scope.urls.length; ++i){
-    //    var url = "fakename";
-    //    $timeout.set(
-
-    //    )
-    //}
 }]);
 
