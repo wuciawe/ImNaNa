@@ -11,7 +11,7 @@ header a{
 }
 
 .mainpad{
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.7);
     padding-top: 50px;
 }
 
@@ -22,7 +22,7 @@ header a{
     height: 40vh;
     min-height: 420px;
     margin-top: 10px;
-    border-radius: 5px 5px 5px 5px;
+    border-radius: 10px;
     border: 1px solid #080808;
 }
 
@@ -91,4 +91,82 @@ header a{
     top: 50%;
     border-left: 1px solid;
     border-color: #080808;
+}
+
+.aslogo{
+    position: absolute;
+    top: 0; bottom:0; left: 0; right:0;
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
+    opacity: 0.45;
+    z-index: 5;
+}
+
+.aslogo2{
+    /*background-color: #080808;*/
+    position: absolute;
+    top: 15%; bottom:0; left: 0; right:0;
+    max-height: 80%;
+    margin: auto;
+    opacity: 0.45;
+    z-index: 5;
+}
+
+.oclogo{
+    position: absolute;
+    left: 35%;
+    top: 17%;
+    max-height: 150px;
+    opacity: 0.3;
+    -ms-transform: rotate(12deg); /* IE 9 */
+    -webkit-transform: rotate(12deg); /* Chrome, Safari, Opera */
+    transform: rotate(12deg);
+    z-index: 5;
+}
+
+.imgcontent{
+    position: relative;
+}
+
+.info{
+    margin-top: 25px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 20vh;
+    min-height: 120px;
+    max-height: 160px;
+    width: 60vh;
+    max-width: 600px;
+    min-width: 300px;
+    position: relative;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+
+.avator{
+    height: 100%;
+}
+
+.avator img{
+    position: absolute;
+    height: 100%;
+    top: -25px;
+    left: -25px;
+    z-index: 10;
+}
+
+.name{
+    position: absolute;
+    top: -20px;
+    left: 135px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.bio{
+    position: absolute;
+    top: 20px;
+    left: 135px;
+    font-size: 18px;
 }

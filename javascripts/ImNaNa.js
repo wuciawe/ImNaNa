@@ -17,6 +17,9 @@ ImNaNaApp.factory('preLoadImageService', function($http) {
         }
     };
 });
+ImNaNaApp.factory('generateUrlService', function($http){
+
+});
 ImNaNaApp.directive('scrollableDirective', ['$document', function ($document) {
     return {
         restrict: 'A',
