@@ -2,7 +2,7 @@
  * Created by haha on 2015/1/31.
  */
 
-var ImNaNaApp = angular.module('ImNaNaApp', []);
+var ImNaNaApp = angular.module('ImNaNaApp', ['ngAnimate']);
 ImNaNaApp.factory('preLoadImageService', function($http) {
     var runDownload = function(imageLoc) {
         return $http({

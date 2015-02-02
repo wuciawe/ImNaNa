@@ -170,3 +170,22 @@ header a{
     left: 135px;
     font-size: 18px;
 }
+
+@-webkit-keyframes shake1 {
+    0% {transform: rotate(15deg);}
+    12.5% {transform: rotate(25deg);}
+    37.5% {transform: rotate(10deg);}
+    62.5% {transform: rotate(-5deg);}
+    87.5% {transform: rotate(-20deg);}
+    100% {transform: rotate(0deg) scaleX(1.2) scaleY(1.2);}
+}
+
+.shake{
+    -webkit-transition: width 400ms; /* For Safari 3.1 to 6.0 */
+    transition: width 400ms;
+}
+
+.shake:hover {
+    -webkit-animation: shake1 400ms ease-in-out;
+    width: 120%;
+}

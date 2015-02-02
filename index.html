@@ -10,22 +10,11 @@
           $(document).ready( function() {
               $(window).scroll(function() {
                   var scrollTop = $(window).scrollTop();
-                  var divam = 50;
+                  var divam = 30;
                   $("body").css({
                       "background-position":"0px -"+scrollTop/divam+"px"
                   });
               });
-
-//              var mcis = $('.mci');
-//              for(var i = 0; i < mcis.length; ++i){
-//                  val img = mcis[i];
-//                  mcis[i].onload = function(i) {
-//                      var img = mcis[i];
-//                      console.log(img.height);
-//                      console.log(img.width);
-//
-//                  };
-//              }
           });
       </script>
     <title>ImNaNa&#39;s Gallery by wuciawe</title>
@@ -34,6 +23,7 @@
       <script src="javascripts/bootstrap.min.js"></script>
       <link rel="shortcut icon" href="http://wuciawe.github.io/favicon.ico">
       <script src="javascripts/angular.min.js"></script>
+      <script src="javascripts/angular-animate.min.js"></script>
       <script src="javascripts/ImNaNa.js"></script>
   </head>
 
@@ -115,8 +105,13 @@
                   </div>
 
               </div>
-
               <div class="imgcontent">
+                  <ul>
+                      <li>
+                          <img class="shake" src="images/ImNaNa/other/0.jpg">
+                      </li>
+                  </ul>
+
                   <h1>skeldkseklsekdlskekdlskdgk</h1>
                   <h1>skeldkseklsekdlskekdlskdgk</h1>
                   <h1>skeldkseklsekdlskekdlskdgk</h1>
