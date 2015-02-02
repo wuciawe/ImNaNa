@@ -25,7 +25,7 @@ ImNaNaApp.factory('generateUrlService', function($http){
             var cate = ob["cate"];
             var addrs = ob["addrs"];
             for(var j = 0; j < addrs.length; ++j){
-                urls.push('images/ImNaNa/' + cate + "/" + addrs[j]);
+                urls.push(baseUrl + cate + "/" + addrs[j]);
             }
         }
     });
@@ -53,10 +53,25 @@ ImNaNaApp.directive('scrollableDirective', ['$document', function ($document) {
         }
     };
 }]);
+ImNaNaApp.directive('mcDirective', ['$animate', function($animate){
+    return {
+        restrict: 'A',
+        replace: false,
+        link: function(scope, elem, attrs){
+            scope.imgModel.fns[attrs['id'][2]] = function(url){
+                scope.imgModel.urls[attrs['id'][2]] = url;
+                $animate.addClass(elem, 'fadeout').then(function(){
+                    $animate.removeClass(elem, 'fadeout');
+                });
+            };
+        }
+    }
+}]);
 ImNaNaApp.controller('LoadImageController', ['$scope', '$timeout', '$document', 'preLoadImageService', 'generateUrlService', function($scope, $timeout, $document, preLoadImageService, generateUrlService){
     $scope.imgModel = {};
     $scope.imgModel.scrollInRange = $document.scrollTop() < 350;
     $scope.imgModel.urls = [];
+    $scope.imgModel.fns = [];
     for(var i = 0; i < 7; ++i){
         $scope.imgModel.urls[i] = generateUrlService.randomUrl();
     }
@@ -64,10 +79,12 @@ ImNaNaApp.controller('LoadImageController', ['$scope', '$timeout', '$document', 
     $scope.loadingImage = function(idx){
         $timeout(function() {
             var url = generateUrlService.randomUrl();
+
             preLoadImageService.image(url).success(function (data, status, header) {
-                $scope.imgModel.urls[idx] = url;
+                $scope.imgModel.fns[idx](url);
                 if($scope.imgModel.scrollInRange) $scope.loadingImage(idx);
             }).error(function (reason) {
+                console.log(reason);
                 if($scope.imgModel.scrollInRange) $scope.loadingImage(idx);
             });
         }, Math.floor(Math.random() * 6000) + 3000);

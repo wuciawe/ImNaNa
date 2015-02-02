@@ -189,3 +189,18 @@ header a{
     -webkit-animation: shake1 400ms ease-in-out;
     width: 120%;
 }
+
+@-webkit-keyframes fadeout {
+    0% {transform: translateX(0);}
+    12.5% {transform: translateX(2px) rotateY(1deg); opacity: 0.8;}
+    25.5% {transform: translateX(-3px) rotateY(-2deg); opacity: 0.6;}
+    37.5% {transform: translateX(-6px) rotateY(-5deg); opacity: 0.4;}
+    50.5% {transform: translateX(5px) rotateY(4deg); opacity: 0.2;}
+    72.5% {transform: translateX(-3px) rotateY(-2deg); opacity: 0.4;}
+    87.5% {transform: translateX(2px) rotateY(1deg); opacity: 0.6;}
+    100% {transform: translateX(0); opacity: 0.8;}
+}
+
+.fadeout {
+    -webkit-animation: fadeout 500ms;
+}
