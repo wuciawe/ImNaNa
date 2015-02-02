@@ -13,6 +13,7 @@ header a{
 .mainpad{
     background: rgba(255, 255, 255, 0.7);
     padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .mcContainer{
@@ -125,10 +126,6 @@ header a{
     z-index: 5;
 }
 
-.imgcontent{
-    position: relative;
-}
-
 .info{
     margin-top: 25px;
     background-color: rgba(255, 255, 255, 0.5);
@@ -137,7 +134,7 @@ header a{
     max-height: 160px;
     width: 60vh;
     max-width: 600px;
-    min-width: 300px;
+    min-width: 450px;
     position: relative;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
@@ -152,7 +149,7 @@ header a{
     position: absolute;
     height: 100%;
     top: -25px;
-    left: -25px;
+    left: -35px;
     z-index: 10;
 }
 
@@ -203,4 +200,41 @@ header a{
 
 .fadeout {
     -webkit-animation: fadeout 500ms;
+}
+
+.imgcontent{
+    position: relative;
+}
+
+.imgpad{
+    background-color: #eee;
+    height: 120%;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: 5px auto;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.imgpad img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.infLoading{
+    font-size: large;
+    color: #31b0d5;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
